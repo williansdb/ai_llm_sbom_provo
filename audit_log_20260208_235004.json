@@ -1,0 +1,94 @@
+{
+    "auditor": "Willian",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "status": "SUCCESS",
+    "duration": 4.3,
+    "timestamp_utc": "2026-02-08 23:33:04",
+    "components": [
+        {
+            "type": "library",
+            "name": "transformers",
+            "version": "5.0.0",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "verified_at_runtime"
+                }
+            ],
+            "externalReferences": [
+                {
+                    "url": "https://pypi.org/project/transformers/",
+                    "type": "website"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "torch",
+            "version": "2.9.0+cpu",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "verified_at_runtime"
+                }
+            ],
+            "externalReferences": [
+                {
+                    "url": "https://pypi.org/project/torch/",
+                    "type": "website"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "termcolor",
+            "version": "3.3.0",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "verified_at_runtime"
+                }
+            ],
+            "externalReferences": [
+                {
+                    "url": "https://pypi.org/project/termcolor/",
+                    "type": "website"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "pydot",
+            "version": "4.0.1",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "verified_at_runtime"
+                }
+            ],
+            "externalReferences": [
+                {
+                    "url": "https://pypi.org/project/pydot/",
+                    "type": "website"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "numpy",
+            "version": "2.0.2",
+            "hashes": [
+                {
+                    "alg": "SHA-256",
+                    "content": "verified_at_runtime"
+                }
+            ],
+            "externalReferences": [
+                {
+                    "url": "https://pypi.org/project/numpy/",
+                    "type": "website"
+                }
+            ]
+        }
+    ]
+}

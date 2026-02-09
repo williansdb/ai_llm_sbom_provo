@@ -8,13 +8,13 @@
 
 ## ⚡ Performance e Integridade
 - **Status:** `SUCCESS`
-- **Tempo de Resposta:** 35.78s
-- **Início (UTC):** 15:47:21
-- **Término (UTC):** 15:47:57 UTC
+- **Tempo de Resposta:** 111.11s
+- **Início (UTC):** 23:50:04
+- **Término (UTC):** 23:51:55 UTC
 
 ## 🔍 Detalhes da Interação
 ### Entrada (Prompt):
-> Quantas unidades federativas tem o Brasil?
+> Cite o nome de 3 estados brasileiros
 
 ## 📦 Inventário de Software (SBOM)
 | Componente           | Versão             | Status                 |
