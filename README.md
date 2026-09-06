@@ -1,33 +1,171 @@
-# 🛡️ AI & LLM Audit Framework (SBOM + PROV-O)
+# AI LLM SBOM PROV-O
 
-Framework em Python executado no Google Colab para auditoria de proveniência e geração de SBOM (CycloneDX) em interações com modelos de IA (LLMs) utilizando o padrão PROV-O.
+«Status: Arquivado — protótipo experimental»
 
----
+Este repositório registra uma primeira tentativa experimental de investigar rastreabilidade, proveniência e inventário de componentes em aplicações que utilizam modelos de linguagem (LLMs).
 
-## 📖 Sobre o Projeto
-Este projeto é um **estudo técnico aprofundado** desenvolvido para explorar a transparência e a rastreabilidade em sistemas de Inteligência Artificial. Ele automatiza a criação de registros de auditoria e inventários de software, permitindo documentar a origem e o ciclo de vida das respostas geradas por modelos de linguagem.
+O projeto foi desenvolvido no início de 2026 e representa uma etapa inicial da pesquisa que posteriormente evoluiu para abordagens mais abrangentes de rastreabilidade operacional, governança e auditoria de sistemas de IA.
 
-### ✨ Principais Funcionalidades
-* **Geração de SBOM Dinâmico:** Criação de inventário de componentes de software via padrão **CycloneDX**.
-* **Mapeamento de Proveniência:** Implementação baseada no padrão **PROV-O** (W3C) para rastrear agentes e atividades.
-* **Relatório de Auditoria:** Exportação automatizada de um arquivo `relatorio_executivo.md` com formatação profissional.
-* **Segurança por Design:** Execução estruturada para não exigir a exposição de chaves de API sensíveis em ambiente público.
+Não se trata de um framework de produção nem de uma implementação de referência. O objetivo deste repositório é preservar o experimento, seus resultados e as decisões tomadas naquela etapa do desenvolvimento.
 
-## ⚙️ Como Utilizar
-1. No topo deste repositório, clique no botão **"Open in Colab"** para abrir o notebook.
-2. Execute as células em ordem sequencial (1 a 7).
-3. O sistema gerará automaticamente as evidências e o relatório final para download.
+## Contexto
 
-## ⚠️ Notas de Implementação e Limitações
-Como este é um projeto focado em segurança e aprendizado rigoroso, foram tomadas as seguintes decisões técnicas:
-* **Hugging Face:** O framework opera sem a necessidade de chaves de API para evitar riscos de exposição. Por conta disso, alguns metadados avançados do modelo no SBOM podem ser limitados.
-* **Ambiente:** O código foi otimizado para o Google Colab, garantindo reprodutibilidade sem necessidade de configurações locais complexas.
+A questão inicial era relativamente simples:
 
-## 📜 Termos de Uso e Atribuição
-Este código é aberto para fins de estudo e aprimoramento técnico. **Ao utilizar ou adaptar este framework, é obrigatória a citação da autoria original vinculada a este repositório:**
+É possível registrar a proveniência de uma interação com uma LLM e relacioná-la ao inventário de software utilizado durante sua execução?
 
-> **Citação sugerida:**
-> *Willian. "AI & LLM Audit Framework (SBOM + PROV-O)". Disponível em: https://github.com/williamsdb/ai_llm_sbom_provo. (2026).*
+A partir dessa questão, foi desenvolvido um protótipo em Python executado no Google Colab, combinando:
 
----
-*Este framework foi desenvolvido como um esforço técnico para fortalecer processos de **Governança, Auditoria e Segurança da Informação** em ecossistemas de IA.*
+- registros de proveniência baseados em PROV-O;
+- geração de SBOM utilizando CycloneDX;
+- registros de auditoria em JSON;
+- documentação dos resultados da execução;
+- um relatório experimental consolidando as evidências produzidas.
+
+A abordagem procurava relacionar três elementos principais:
+
+```text
+Modelo / Agente
+      │
+      ▼
+Atividade de inferência
+      │
+      ▼
+Resultado + contexto da execução
+      │
+      ├── Proveniência (PROV-O)
+      └── Inventário de software (CycloneDX)
+```
+
+## O que foi experimentado
+
+O protótipo contém um notebook que executa o fluxo experimental e produz artefatos associados à execução.
+
+**Entre os elementos explorados estão:**
+
+- identificação do modelo utilizado;
+- registro das atividades realizadas;
+- representação de entidades e agentes relacionados à execução;
+- geração de inventário de componentes de software;
+- registro das evidências em arquivos estruturados;
+- geração de um relatório final da execução.
+
+O repositório também preserva um registro de auditoria em JSON e uma representação visual do resultado obtido.
+
+## Tecnologias utilizadas
+
+- Python
+- Jupyter / Google Colab
+- CycloneDX
+- PROV-O
+- Hugging Face
+- Modelos de linguagem (LLMs)
+
+## Estrutura
+
+```text
+.
+├── LICENSE
+├── README.md
+├── ai_llm_sbom_provo.ipynb
+├── audit_log_20260208_235004.json
+├── auditoria_final.png
+└── relatorio_executivo.md
+```
+
+`ai_llm_sbom_provo.ipynb` contém o experimento principal.
+
+`audit_log_20260208_235004.json` contém os registros estruturados produzidos durante uma execução.
+
+`auditoria_final.png` apresenta uma representação visual do resultado do experimento.
+
+`relatorio_executivo.md` reúne os resultados e observações produzidos ao final da execução.
+
+## Limitações
+
+Este projeto possui limitações importantes.
+
+Ele foi desenvolvido como uma prova experimental inicial e não foi projetado para atender requisitos de produção, escalabilidade ou integração com ambientes corporativos.
+
+Entre as principais limitações estão:
+
+- execução dependente do Google Colab;
+- forte acoplamento ao notebook;
+- representação de proveniência ainda simplificada;
+- cobertura limitada dos metadados relacionados ao modelo;
+- ausência de uma arquitetura persistente de coleta e armazenamento de evidências;
+- ausência de mecanismos abrangentes de reprodução de ambiente;
+- ausência de integração entre diferentes camadas do ciclo de vida de um sistema de IA;
+- validação limitada a um cenário experimental.
+
+Consequentemente, os artefatos produzidos devem ser interpretados como evidências de uma experimentação, e não como um modelo completo de auditoria de LLMs.
+
+## Por que este repositório permanece público
+
+Este repositório foi mantido como registro do processo de desenvolvimento.
+
+A abordagem utilizada aqui não foi a versão final da pesquisa. Durante seu desenvolvimento, algumas limitações ficaram evidentes, principalmente a dificuldade de representar adequadamente um sistema de IA apenas por meio da combinação entre proveniência e inventário de software.
+
+Essa limitação levou a uma mudança de direção.
+
+Em vez de tratar a rastreabilidade apenas como uma descrição dos componentes utilizados, o trabalho posterior passou a considerar também o que efetivamente ocorreu durante a execução: ambiente, modelo, parâmetros, recursos computacionais, telemetria, vulnerabilidades, evidências e mecanismos de integridade.
+
+O resultado foi uma arquitetura progressivamente mais abrangente.
+
+Portanto, este repositório deve ser entendido como um ponto de partida, e não como o resultado final dessa linha de investigação.
+
+## Evolução
+
+O desenvolvimento posterior seguiu esta sequência:
+
+1. Primeiro protótipo
+
+**AI LLM SBOM PROV-O**
+
+Primeira tentativa experimental de relacionar proveniência de interações com LLMs e inventário de software.
+
+Este repositório.
+
+2. Trabalho de Conclusão de Curso
+
+**TCC — Rastreabilidade Operacional em Modelos Fundacionais Open-Weights**
+
+[https://github.com/williansdb/tcc_ai_governance_llms](https://github.com/williansdb/tcc_ai_governance_llms)
+
+A investigação foi ampliada para uma arquitetura de rastreabilidade baseada em evidências, incorporando múltiplos artefatos BOM, VEX, telemetria operacional, reprodutibilidade experimental e mecanismos criptográficos de preservação das evidências.
+
+3. BOMSenso
+
+**BOMSenso**
+
+[https://github.com/williansdb/bomsenso](https://github.com/williansdb/bomsenso)
+
+A experiência acumulada foi posteriormente aplicada em uma arquitetura reprodutível voltada à segurança, rastreabilidade e governança de sistemas com IA agêntica.
+
+```text
+AI LLM SBOM PROV-O
+        │
+        │ primeira experimentação
+        ▼
+TCC — AI Governance / LLMs
+        │
+        │ ampliação da rastreabilidade
+        ▼
+BOMSenso
+        │
+        │ aplicação e engenharia do conceito
+        ▼
+Arquitetura para sistemas de IA agêntica
+```
+
+## Estado do projeto
+
+Arquivado.
+
+Não há previsão de desenvolvimento ativo deste protótipo.
+
+O código permanece disponível para fins de referência, histórico técnico e acompanhamento da evolução da abordagem.
+
+## Licença
+
+Este projeto está disponível sob a licença MIT. Consulte o arquivo `LICENSE` para os termos completos.
